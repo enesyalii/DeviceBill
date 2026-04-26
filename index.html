@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeviceBill</title>
+  <style>
+    :root {
+      --bg: #f4f1e8;
+      --paper: #fbf9f2;
+      --line: #cfc7b6;
+      --text: #222;
+      --muted: #5c564d;
+      --link: #204a87;
+      --code-bg: #efeadc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+
+    a {
+      color: var(--link);
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+    }
+
+    .skip-link:focus {
+      left: 0.5rem;
+      top: 0.5rem;
+      background: #fff;
+      padding: 0.35rem 0.5rem;
+      border: 1px solid var(--line);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      border-right: 1px solid var(--line);
+      padding: 1rem 1rem 2rem;
+      background: #efe9db;
+    }
+
+    .sidebar h1 {
+      font-size: 1.6rem;
+      margin: 0 0 0.35rem;
+      font-weight: 700;
+    }
+
+    .sidebar p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      margin: 1.25rem 0 0.4rem;
+      font-weight: 700;
+    }
+
+    .sidebar ul {
+      list-style: square;
+      margin: 0 0 0 1.2rem;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 0.2rem 0;
+    }
+
+    .content {
+      max-width: 900px;
+      padding: 1.2rem 1.5rem 4rem;
+      background: var(--paper);
+    }
+
+    .content h1 {
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.3rem;
+    }
+
+    .content h2 {
+      font-size: 1.35rem;
+      margin: 1.8rem 0 0.4rem;
+    }
+
+    .lede {
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .hero-image {
+      display: block;
+      width: min(100%, 760px);
+      height: auto;
+      margin: 1rem 0 1.2rem;
+      border: 1px solid #2a2d2f;
+      background: #0b0d10;
+    }
+
+    .meta {
+      margin: 1rem 0;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    .meta strong {
+      display: inline-block;
+      min-width: 7rem;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      padding: 0.8rem;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: "DejaVu Sans Mono", "Courier New", monospace;
+      font-size: 0.95em;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .content {
+        padding: 1rem 1rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1>DeviceBill</h1>
+      <p>Documentation and project overview</p>
+
+      <div class="nav-title">Project</div>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="download.html">Download</a></li>
+        <li><a href="#run">Run</a></li>
+        <li><a href="#files">Files</a></li>
+      </ul>
+
+      <div class="nav-title">References</div>
+      <ul>
+        <li><a href="docs/index.md">Markdown source</a></li>
+        <li><a href="mkdocs.yml">MkDocs config</a></li>
+        <li><a href="main.py">Application code</a></li>
+      </ul>
+    </aside>
+
+    <main class="content" id="content">
+      <h1 id="overview">DeviceBill</h1>
+      <p class="lede">
+        DeviceBill is a small Tkinter and SQLite application for recording device
+        prices, generating text receipts, and checking estimated values against
+        previous entries in the database.
+      </p>
+
+      <img
+        class="hero-image"
+        src="assets/devicebill-boot.png"
+        alt="A terminal-style DeviceBill boot screen graphic"
+      >
+
+      <div class="meta">
+        <div><strong>Project type:</strong> Desktop utility with a static documentation site</div>
+        <div><strong>Primary stack:</strong> Python, Tkinter, SQLite</div>
+        <div><strong>Site style:</strong> Documentation-first, plain and technical</div>
+      </div>
+
+      <h2 id="features">Features</h2>
+      <ul>
+        <li>Stores device model names, prices, and star ratings in `prices.db`.</li>
+        <li>Suggests a matching price when a similar model already exists.</li>
+        <li>Generates plain text receipt files for saved purchases.</li>
+        <li>Includes a small build flow for a static website and Debian package output.</li>
+      </ul>
+
+      <h2 id="run">Run</h2>
+      <p>The desktop app launches with the existing Make target:</p>
+      <pre><code>make run</code></pre>
+      <p>Installation details are available on the <a href="download.html">Download page</a>.</p>
+      <p>The static site can be published into `build/site` with:</p>
+      <pre><code>make site</code></pre>
+
+      <h2 id="files">Files</h2>
+      <ul>
+        <li>`main.py` contains the Tkinter user interface and database logic.</li>
+        <li>`prices.db` stores recorded device prices.</li>
+        <li>`docs/index.md` is the Markdown version of the project overview.</li>
+        <li>`mkdocs.yml` defines the MkDocs configuration for documentation builds.</li>
+        <li>`Makefile` includes helper commands for running, checking, packaging, and publishing.</li>
+      </ul>
+
+      <div class="footer">
+        This page is intentionally plain and compact, with a documentation-first
+        layout for quick scanning.
+      </div>
+    </main>
+  </div>
+</body>
+</html>
