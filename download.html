@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeviceBill Download</title>
+  <style>
+    :root {
+      --bg: #f4f1e8;
+      --paper: #fbf9f2;
+      --line: #cfc7b6;
+      --text: #222;
+      --muted: #5c564d;
+      --link: #204a87;
+      --code-bg: #efeadc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.45;
+    }
+
+    a {
+      color: var(--link);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      border-right: 1px solid var(--line);
+      padding: 1rem 1rem 2rem;
+      background: #efe9db;
+    }
+
+    .sidebar h1 {
+      font-size: 1.6rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .sidebar p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      margin: 1.25rem 0 0.4rem;
+      font-weight: 700;
+    }
+
+    .sidebar ul {
+      list-style: square;
+      margin: 0 0 0 1.2rem;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 0.2rem 0;
+    }
+
+    .content {
+      max-width: 900px;
+      padding: 1.2rem 1.5rem 4rem;
+      background: var(--paper);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.3rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 1.8rem 0 0.4rem;
+    }
+
+    .lede {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .hero-image {
+      display: block;
+      width: min(100%, 760px);
+      height: auto;
+      margin: 1rem 0 1.2rem;
+      border: 1px solid #2a2d2f;
+      background: #0b0d10;
+    }
+
+    .download-box {
+      margin: 1rem 0;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      background: #f6f0e2;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      padding: 0.8rem;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: "DejaVu Sans Mono", "Courier New", monospace;
+      font-size: 0.95em;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .content {
+        padding: 1rem 1rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1>DeviceBill</h1>
+      <p>Documentation and project overview</p>
+
+      <div class="nav-title">Pages</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="download.html">Download</a></li>
+      </ul>
+
+      <div class="nav-title">Files</div>
+      <ul>
+        <li><a href="dist/devicebill_0.1.0_all.deb">Debian package</a></li>
+        <li><a href="main.py">Application code</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h1>Download</h1>
+      <p class="lede">
+        DeviceBill is available as a Debian package for Debian and Ubuntu based
+        systems.
+      </p>
+
+      <img
+        class="hero-image"
+        src="assets/devicebill-boot.png"
+        alt="A terminal-style DeviceBill boot screen graphic"
+      >
+
+      <h2>Install with APT</h2>
+      <div class="download-box">
+        <p>Install DeviceBill with:</p>
+        <pre><code>sudo apt install devicebill</code></pre>
+      </div>
+
+      <h2>Package file</h2>
+      <p>
+        The current Debian package is available here:
+        <a href="dist/devicebill_0.1.0_all.deb">devicebill_0.1.0_all.deb</a>
+      </p>
+
+      <h2>Local package install</h2>
+      <p>If you already downloaded the package file, install it directly with:</p>
+      <pre><code>sudo apt install ./devicebill_0.1.0_all.deb</code></pre>
+
+      <div class="footer">
+        Package builds are produced by the project Makefile and published with
+        the static site.
+      </div>
+    </main>
+  </div>
+</body>
+</html>
